@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+:root {
+  --color-cream: #FEF3E2;
+  --color-yellow: #F3C623;
+  --color-orange: #FFB22C;
+  --color-orange-dark: #FA812F;
+}
