@@ -1,4 +1,10 @@
+// tailwind.config.cjs
+const animate = require('tailwindcss-animate');
+
 module.exports = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -9,4 +15,7 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    animate,
+  ],
 };
