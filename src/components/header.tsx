@@ -1,7 +1,7 @@
-//import Link from "next/link";
 "use client";
 import { useState } from "react";
 import { Menu } from "lucide-react";
+//import Link from "next/link";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <>
       {!isMenuOpen ? (
-        // Header normale
+
         <header className="w-full min-h-[70vh] bg-[url(/images/bg-header.jpg)] bg-cover bg-center p-4">
           <div className="flex w-full justify-between items-center">
             <h1 className="text-[var(--color-cream)] text-8xl font-bold">Gig Hunter</h1>
@@ -24,10 +24,10 @@ export default function Header() {
           </div>
         </header>
       ) : (
-        // Menu a schermo intero
+
         <div className="fixed inset-0 bg-black z-50">
           <div className="flex flex-col h-full">
-            {/* Header nel menu (opzionale) */}
+
             <header className="w-full min-h-[20vh] bg-[url(/images/bg-header.jpg)] bg-cover bg-center p-4">
               <div className="flex w-full justify-between items-center">
                 <h1 className="text-[var(--color-cream)] text-8xl font-bold">Gig Hunter</h1>
@@ -38,10 +38,10 @@ export default function Header() {
               </div>
             </header>
 
-            {/* Linea arancione sotto l'header */}
+
             <div className="w-full h-5 bg-[var(--color-orange-dark)]"></div>
 
-            {/* Link del menu */}
+
             <nav className="flex-1 flex flex-col items-center justify-center gap-8 p-4">
               <a
                 href="#home"
@@ -53,19 +53,19 @@ export default function Header() {
                 href="#concerts"
                 className="text-[var(--color-cream)] text-4xl font-bold hover:text-[var(--color-orange-dark)] transition-colors"
               >
-                Concerti
+              concerts
               </a>
               <a
                 href="#about"
                 className="text-[var(--color-cream)] text-4xl font-bold hover:text-[var(--color-orange-dark)] transition-colors"
               >
-                Chi siamo
+              about us
               </a>
               <a
                 href="#contact"
                 className="text-[var(--color-cream)] text-4xl font-bold hover:text-[var(--color-orange-dark)] transition-colors"
               >
-                Contatti
+              contact
               </a>
             </nav>
           </div>
