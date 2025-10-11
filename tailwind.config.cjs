@@ -122,5 +122,5 @@ module.exports = {
   	}
   },
 
-  plugins: [import("tailwindcss-animate")],
+//  plugins: [import("tailwindcss-animate")],
 }
