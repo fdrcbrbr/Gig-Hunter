@@ -1,5 +1,6 @@
+
 import { Event } from "@/data/interfaces";
-import Link from "next/link";
+//import Link from "next/link";
 import Image from "next/image";
 
 export default async function Card({ event }: { event: Event }) {
@@ -8,11 +9,11 @@ export default async function Card({ event }: { event: Event }) {
 
   return (
     <div className=" hover:text-gray-700 ">
-      <Link
+      {/* <Link
         key={event.id}
         href={`/events/${event.id}`}
         className="group cursor-pointer bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-      >
+      > */}
         <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
           <Image
             src={eventImage.url}
@@ -31,7 +32,7 @@ export default async function Card({ event }: { event: Event }) {
             ${event.name}
           </p>
         </div>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 }

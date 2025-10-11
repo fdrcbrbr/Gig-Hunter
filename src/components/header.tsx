@@ -1,12 +1,15 @@
 "use client";
 import { SquareMenu, X } from "lucide-react";
+import { useState } from "react";
 
-interface HeaderProps {
-  isMenuOpen: boolean;
-  toggleMenu: () => void;
-}
+export default function Header() {
+const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-export default function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+
   return (
     <>
       {!isMenuOpen ? (

@@ -10,7 +10,7 @@ const baseurl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKe
  * @param city - The city name (e.g., 'stockholm', 'uppsala')
  * @returns Promise with product data
  */
-export async function getEventsByPlace(city?: string): Promise<EventsRes> {
+export async function getEventsByCity(city?: string): Promise<EventsRes> {
   try {
     const response = await fetch(`${baseurl}&city=${city}`);
     if (!response.ok) {
