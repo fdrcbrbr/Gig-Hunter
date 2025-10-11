@@ -1,9 +1,10 @@
-/* import { Event } from "@/data/interfaces";
+import { Event } from "@/data/interfaces";
 import Link from "next/link";
 import Image from "next/image";
 
 export default async function Card({ event }: { event: Event }) {
   if (!event) return;
+  const eventImage = event.images[3];
 
   return (
     <div className=" hover:text-gray-700 ">
@@ -14,24 +15,23 @@ export default async function Card({ event }: { event: Event }) {
       >
         <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
           <Image
-            src={event.thumbnail}
-            alt={event.title}
-            width={300}
-            height={300}
+            src={eventImage.url}
+            alt={event.name}
+            width={eventImage.width}
+            height={eventImage.height}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
 
         <div className="space-y-2">
           <h3 className="font-medium text-gray-900 hover:text-gray-600 line-clamp-2">
-            {event.title}
+            {event.name}
           </h3>
           <p className="text-lg font-bold text-gray-900  hover:text-gray-600 ">
-            ${event.price}
+            ${event.name}
           </p>
         </div>
       </Link>
     </div>
   );
 }
- */
