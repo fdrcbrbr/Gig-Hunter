@@ -6,6 +6,13 @@ export interface EventImage {
   fallback: boolean;
 }
 
+export interface EventAttraction {
+  name: string;
+  type?: string;
+  id?: string;
+  url?: string;
+}
+
 export interface EventVenue {
   name: string;
     city: {
@@ -18,6 +25,16 @@ export interface EventVenue {
     latitude: string;
   };
 }
+
+export interface EventsRes {
+  _embedded: {
+    events: Event[];
+  };
+  page: {
+    totalElements: number;
+  };
+}
+
 
 export interface Event {
   name: string;
@@ -36,14 +53,6 @@ export interface Event {
   }>;
   _embedded: {
     venues: EventVenue[];
-  };
-}
-
-export interface EventsRes {
-  _embedded: {
-    events: Event[];
-  };
-  page: {
-    totalElements: number;
+    attractions?: EventAttraction[];
   };
 }
