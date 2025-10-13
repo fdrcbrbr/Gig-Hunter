@@ -1,37 +1,40 @@
-/* import { Event } from "@/data/interfaces";
+
+import { Event } from "@/data/interfaces";
 import Link from "next/link";
 import Image from "next/image";
 
-export default async function Card({ event }: { event: Event }) {
-  if (!event) return;
+export default function Card({ event }: { event: Event }) {
+  if (!event) return null;
+
+  const eventImage = event.images[3];
+  const cityName = event._embedded.venues[0]?.city?.name || "Unknown City";
+  const eventDate = event.dates.start.localDate;
 
   return (
-    <div className=" hover:text-gray-700 ">
-      <Link
-        key={event.id}
-        href={`/events/${event.id}`}
-        className="group cursor-pointer bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-      >
-        <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
-          <Image
-            src={event.thumbnail}
-            alt={event.title}
-            width={300}
-            height={300}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="font-medium text-gray-900 hover:text-gray-600 line-clamp-2">
-            {event.title}
-          </h3>
-          <p className="text-lg font-bold text-gray-900  hover:text-gray-600 ">
-            ${event.price}
-          </p>
-        </div>
-      </Link>
-    </div>
+    <Link
+      href={event.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group cursor-pointer bg-black rounded-lg overflow-hidden hover:shadow-lg transition-shadow block"
+    >
+      <div className="aspect-square rounded-lg overflow-hidden mb-4">
+        <Image
+          src={eventImage.url}
+          alt={event.name}
+          width={eventImage.width}
+          height={eventImage.height}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <div className="space-y-2 p-2">
+        <h3 className="text-lg font-bold text-gray-100 hover:text-gray-600 line-clamp-2">
+          {event.name}
+        </h3>
+        <p className="text-medium text-gray-300 hover:text-gray-600">
+          {cityName} | {eventDate}
+        </p>
+      </div>
+    </Link>
   );
 }
- */
+

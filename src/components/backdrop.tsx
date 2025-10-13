@@ -1,3 +1,4 @@
+"use client";
 interface BackdropProps {
   children: React.ReactNode;
   imageUrl: string;
