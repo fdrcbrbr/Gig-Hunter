@@ -1,5 +1,4 @@
-
-import { Event } from "@/data/interfaces";
+import { Event } from "@/lib/interfaces";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -37,4 +36,3 @@ export default function Card({ event }: { event: Event }) {
     </Link>
   );
 }
-

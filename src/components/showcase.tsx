@@ -1,15 +1,13 @@
 import { getEventsByCity } from "@/data/events";
 import Link from "next/link";
-import { Event, EventsRes } from "@/data/interfaces";
+import { Event, EventsRes } from "@/lib/interfaces";
 import Card from "@/components/card";
 
 interface EventsPageProps {
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default async function Showcase({
-  searchParams = {},
-}: EventsPageProps) {
+export default async function Showcase({ searchParams = {} }: EventsPageProps) {
   const resolvedSearchParams = await searchParams;
   const query = (resolvedSearchParams.query as string) || "";
   let events: Event[] = [];

@@ -1,6 +1,6 @@
 import { getEventsByCity } from "@/data/events";
 import Link from "next/link";
-import { Event, EventsRes } from "@/data/interfaces";
+import { Event, EventsRes } from "@/lib/interfaces";
 import CardList from "@/components/card-list";
 
 interface EventsPageProps {
@@ -10,8 +10,7 @@ interface EventsPageProps {
 export default async function EventList({
   searchParams = {},
 }: EventsPageProps) {
-
- /*    if (!searchParams.query) {
+  /*    if (!searchParams.query) {
     return null;
   } */
   const query = (searchParams.query as string) || "";
@@ -43,9 +42,7 @@ export default async function EventList({
           {/* Events Grid */}
           <div className="grid gap-3 place-content-center">
             {events.length > 0 ? (
-              events.map((event) => (
-                <CardList event={event} key={event.id} />
-              ))
+              events.map((event) => <CardList event={event} key={event.id} />)
             ) : (
               <p className="text-center text-gray-500 col-span-full">
                 No events found {cityFilter ? `in ${cityFilter}` : ""}.
