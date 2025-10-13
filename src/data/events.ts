@@ -1,4 +1,4 @@
-import {EventsRes} from "@/data/interfaces";
+import {EventsRes, Event} from "@/data/interfaces";
 
 const apiKey = process.env.API_KEY_TICKET;
 
@@ -27,3 +27,26 @@ export async function getEventsByCity(city?: string): Promise<EventsRes> {
     );
   }
 };
+
+/**
+ * Fetch a desired amount number of events 
+ * @param evenst - The returned amount from the API
+ * @param maxCount - The amount of events we want to show
+ * @returns A list of events in the desired amount to fit rigth in the UI
+ */
+export function getUniqueEvents(events: Event[], maxCount: number = 9): Event[] {
+  const seenNames = new Set<string>();
+  const uniqueEvents: Event[] = [];
+
+  for (const event of events) {
+    if (!seenNames.has(event.name)) {
+      seenNames.add(event.name);
+      uniqueEvents.push(event);
+      if (uniqueEvents.length >= maxCount) {
+        break;
+      }
+    }
+  }
+
+  return uniqueEvents;
+}
