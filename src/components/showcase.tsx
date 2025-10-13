@@ -19,7 +19,7 @@ export default async function Showcase({
     events = response._embedded.events;
 
     return (
-      <div className="bg-[color:var(--color-cream)] pt-15">
+      <div className="bg-[color:var(--color-cream)] py-15">
         <div className="w-[90vw] mx-auto">
           {/* Line box */}
           <div className="flex mb-15 items-center justify-center relative">
@@ -32,7 +32,7 @@ export default async function Showcase({
           </div>
 
           {/* Events Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {events.map((event) => (
               <Card event={event} key={event.id} />
             ))}

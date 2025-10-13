@@ -2,7 +2,7 @@ import Backdrop from "@/components/backdrop";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Showcase from "@/components/showcase"
-import EventList from "@/components/even-list";
+import EventList from "@/components/list-events";
 
 export default function HomePage() {
 

@@ -10,6 +10,10 @@ interface EventsPageProps {
 export default async function EventList({
   searchParams = {},
 }: EventsPageProps) {
+
+ /*    if (!searchParams.query) {
+    return null;
+  } */
   const query = (searchParams.query as string) || "";
   let events: Event[] = [];
 

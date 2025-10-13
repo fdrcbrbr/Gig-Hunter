@@ -6,11 +6,11 @@ const baseurl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKe
 
 
 /**
- * Fetch products from a specific category
+ * Fetch events according to a selected city
  * @param city - The city name (e.g., 'stockholm', 'uppsala')
- * @returns Promise with product data
+ * @returns Promise with Promise with event's data
  */
-export async function getEventsByCity(city?: string): Promise<EventsRes> {
+export async function getEventsByCity(city: string): Promise<EventsRes> {
   try {
     const response = await fetch(`${baseurl}&city=${city}`);
     if (!response.ok) {
@@ -50,3 +50,25 @@ export function getUniqueEvents(events: Event[], maxCount: number = 9): Event[] 
 
   return uniqueEvents;
 }
+
+/**
+ * Fetch products from a specific category
+ * @returns Promise with event's data for the site's showcase
+ */
+export async function getEventsShowcase(): Promise<EventsRes> {
+  try {
+    const response = await fetch(`${baseurl}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data: EventsRes = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error fetching events:", error);
+    throw new Error(
+      `Failed to fetch events: ${error instanceof Error ? error.message : String(error)
+      }`
+    );
+  }
+};
