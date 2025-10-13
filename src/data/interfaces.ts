@@ -8,7 +8,9 @@ export interface EventImage {
 
 export interface EventVenue {
   name: string;
-  city: string;
+    city: {
+    name: string;
+  };
   country: string;
   address: string;
   location: {
