@@ -1,4 +1,4 @@
-import { getEventsByCity } from "@/data/events";
+import { getEvents } from "@/data/events";
 import Link from "next/link";
 import { Event, EventsRes } from "@/lib/interfaces";
 import Card from "@/components/card";
@@ -13,7 +13,7 @@ export default async function Showcase({ searchParams = {} }: EventsPageProps) {
   let events: Event[] = [];
 
   try {
-    const response: EventsRes = await getEventsByCity(query);
+    const response: EventsRes = await getEvents();
     events = response._embedded.events;
 
     return (

@@ -35,6 +35,17 @@ export interface EventsRes {
   };
 }
 
+export interface EventClassification {
+  genre: {
+    id: string;
+    name: string;
+  };
+  subGenre?: {
+    id: string;
+    name: string;
+  };
+}
+
 
 export interface Event {
   name: string;
@@ -47,10 +58,7 @@ export interface Event {
       localTime: string;
     };
   };
-  classifications: Array<{
-    genre: { name: string };
-    subGenre: { name: string };
-  }>;
+  classifications: EventClassification[];
   _embedded: {
     venues: EventVenue[];
     attractions?: EventAttraction[];

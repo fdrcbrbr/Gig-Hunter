@@ -53,17 +53,23 @@ export async function getEventsByCity(city: string): Promise<EventsRes> {
 
 /**
  * Fetch events using the keyword function of the API
- * @param keyword - Works with any word or fraction of it
+ * @param keyword - Works filtering words city, band, and so on
  * @returns Promise with Promise with event's data
  */
-export async function getEventsByKeyword(keyword: string): Promise<EventsRes> {
+export async function getEventsByKeyword(query: string): Promise<EventsRes> {
   try {
-    const response = await fetch(`${baseurl}&locale=*&keyword=${keyword}`);
+
+    const url = `${baseurl}&keyword=${encodeURIComponent(query)}`;
+
+    console.log("Fetching events from URL:", url); 
+
+    const response = await fetch(url);
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data: EventsRes = await response.json();
-
+    console.log("API response:", data); 
     return data;
   } catch (error) {
     console.error("Error fetching events:", error);
@@ -74,3 +80,4 @@ export async function getEventsByKeyword(keyword: string): Promise<EventsRes> {
     );
   }
 }
+

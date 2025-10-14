@@ -1,4 +1,5 @@
-import SearchBar2 from "./ui/search";
+import SearchBar from "./ui/search";
+import Filters from "./filters";
 
 export default function Hero() {
   return (
@@ -9,7 +10,7 @@ export default function Hero() {
       <p className="text-[var(--color-cream)] text-xl max-w-2xl">
         Explore live music events in your city. From indie gigs to big festivals, we&apos;ve got you covered.
       </p>
-      <SearchBar2/>
+      <SearchBar/>
     </div>
   );
 }
