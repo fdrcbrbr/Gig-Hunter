@@ -6,7 +6,7 @@ export default function Card({ event }: { event: Event }) {
   if (!event) return null;
 
   const eventImage = event.images[3];
-  const cityName = event._embedded.venues[0]?.city?.name || "Unknown City";
+  const cityName = event._embedded.venues[0]?.city?.name || "";
   const eventDate = event.dates.start.localDate;
 
   return (

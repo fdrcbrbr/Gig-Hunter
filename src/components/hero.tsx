@@ -1,17 +1,19 @@
 import SearchBar from "./ui/search";
-import Filters from "./filters";
+import Filters from "./filter-genre";
+import DatePicker from "./filter-date";
 
 export default function Hero() {
   return (
     <div className="w-full min-h-[70vh] p-4 flex flex-col items-center justify-center text-center">
-      <h2 className="text-[var(--color-cream)] text-5xl font-bold mb-4">
+      <h2 className="text-[var(--color-orange)] text-5xl font-bold mb-4">
         Find Your Next Gig
       </h2>
-      <p className="text-[var(--color-cream)] text-xl max-w-2xl">
+      <p className="text-[var(--color-yellow)] text-xl max-w-2xl">
         Explore live music events in your city. From indie gigs to big festivals, we&apos;ve got you covered.
       </p>
       <SearchBar/>
       <Filters/>
+      <DatePicker/>
     </div>
   );
 }

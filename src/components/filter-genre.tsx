@@ -3,7 +3,7 @@
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { GENRE_DISPLAY_NAMES } from "@/data/consts"; 
 
-export default function Filters() {
+export default function FilterGenre() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -34,7 +34,7 @@ export default function Filters() {
   ];
 
   return (
-    <div className="flex gap-4 p-4 bg-gray-100 rounded-lg">
+    <div className="flex gap-4 p-4 bg-neutral-100 rounded-lg">
       <div className="flex flex-col">
         <span className="font-medium mb-2"> Genre</span>
         <select

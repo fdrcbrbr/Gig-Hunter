@@ -6,7 +6,7 @@ import EventList from "@/components/list-events";
 
 export default function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   // Controlla se esiste almeno uno dei parametri di ricerca
-  const hasSearchParams = !!searchParams.query || !!searchParams.genre;
+  const hasSearchParams = !!searchParams.query || !!searchParams.genre || !!searchParams.date;
 
   return (
     <>

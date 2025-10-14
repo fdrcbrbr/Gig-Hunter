@@ -12,9 +12,9 @@ export default async function EventList({ searchParams = {} }: EventsPageProps) 
     return
   }
 
-
-   const query = typeof searchParams.query === 'string' ? searchParams.query : "";
-   const genreCode = typeof searchParams.genre === 'string' ? searchParams.genre : "";
+  const date = searchParams.date;
+  const query = typeof searchParams.query === 'string' ? searchParams.query : "";
+  const genreCode = searchParams.genre;
 
   let events: Event[] = [];
 
@@ -29,7 +29,12 @@ export default async function EventList({ searchParams = {} }: EventsPageProps) 
           (classification) => classification.genre.id === genreCode
         )
       );
-    }
+    }else if(date) {
+        events = events.filter((event) => {
+        const eventDate = event.dates.start.localDate;
+      return eventDate === date;
+      })}
+    
 
     return (
       <div className="bg-[color:var(--color-cream)] pt-15">

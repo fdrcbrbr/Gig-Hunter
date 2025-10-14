@@ -1,4 +1,5 @@
 import { getEvents } from "@/data/events";
+import { getUniqueEvents } from "@/lib/helpers";
 import Link from "next/link";
 import { Event, EventsRes } from "@/lib/interfaces";
 import Card from "@/components/card";
@@ -10,7 +11,8 @@ export default async function Showcase() {
 
   try {
     const response: EventsRes = await getEvents();
-    events = response._embedded.events;
+    const listWithDuplicates: Event[] = response._embedded.events;
+    events = getUniqueEvents(listWithDuplicates);
 
     return (
       <div className="bg-[color:var(--color-cream)] py-15">

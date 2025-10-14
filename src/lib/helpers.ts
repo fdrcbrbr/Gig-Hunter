@@ -1,12 +1,11 @@
 import {Event} from "@/lib/interfaces";
 
 /**
- * Helper for fetching of a desired amount number of events 
- * @param events - The returned amount from the API
- * @param maxCount - The amount of events we want to show
- * @returns A list of events in the desired amount to fit rigth in the UI
+ * Helper for avoiding duplicates in the showcase
+ * @param events - The returned events from the API
+ * @returns A list of events with any artist only once
  */
-export function getUniqueEvents(events: Event[], maxCount: number = 9): Event[] {
+export function getUniqueEvents(events: Event[]): Event[] {
   const seenNames = new Set<string>();
   const uniqueEvents: Event[] = [];
 
@@ -14,11 +13,7 @@ export function getUniqueEvents(events: Event[], maxCount: number = 9): Event[] 
     if (!seenNames.has(event.name)) {
       seenNames.add(event.name);
       uniqueEvents.push(event);
-      if (uniqueEvents.length >= maxCount) {
-        break;
-      }
     }
   }
-
   return uniqueEvents;
 }
