@@ -2,7 +2,7 @@ import { EventsRes} from "@/lib/interfaces";
 
 const apiKey = process.env.API_KEY_TICKET;
 
-const baseurl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&countryCode=SE`;
+const baseurl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&countryCode=SE&size=100`;
 
 /**
  * Fetch events according the baseUrl (any event in Sweden)
