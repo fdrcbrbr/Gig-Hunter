@@ -1,20 +1,25 @@
 import Backdrop from "@/components/backdrop";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
-import EventsPage from "@/components/showcase"
+import Showcase from "@/components/showcase";
+import EventList from "@/components/list-events";
 
-export default function HomePage() {
+export default function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  // Controlla se esiste almeno uno dei parametri di ricerca
+  const hasSearchParams = !!searchParams.query || !!searchParams.genre || !!searchParams.date;
 
   return (
     <>
-      <Backdrop imageUrl="/images/bg-header.jpg" opacity={60} overlayColor="black">
-        <Header/>
+      <Backdrop>
+        <Header />
         <Hero />
       </Backdrop>
-      <div className="w-full h-5 bg-[var(--color-orange-dark)]"></div>
-      <EventsPage/>
+      {/* Mostra EventList solo se c'è una query di ricerca o un genere */}
+      {hasSearchParams && <EventList searchParams={searchParams} />}
+      <Showcase />
     </>
   );
 }
+
 
 

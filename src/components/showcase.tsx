@@ -1,25 +1,21 @@
-import { getEventsByCity } from "@/data/events";
+import { getEvents } from "@/data/events";
+import { getUniqueEvents } from "@/lib/helpers";
 import Link from "next/link";
-import { Event, EventsRes } from "@/data/interfaces";
+import { Event, EventsRes } from "@/lib/interfaces";
 import Card from "@/components/card";
 
-interface EventsPageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
 
-export default async function EventsPage({
-  searchParams = {},
-}: EventsPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const query = (resolvedSearchParams.query as string) || "";
+export default async function Showcase() {
+
   let events: Event[] = [];
 
   try {
-    const response: EventsRes = await getEventsByCity(query);
-    events = response._embedded.events;
+    const response: EventsRes = await getEvents();
+    const listWithDuplicates: Event[] = response._embedded.events;
+    events = getUniqueEvents(listWithDuplicates);
 
     return (
-      <div className="bg-[color:var(--color-cream)] pt-15">
+      <div className="bg-[color:var(--color-cream)] py-15">
         <div className="w-[90vw] mx-auto">
           {/* Line box */}
           <div className="flex mb-15 items-center justify-center relative">
@@ -32,7 +28,7 @@ export default async function EventsPage({
           </div>
 
           {/* Events Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {events.map((event) => (
               <Card event={event} key={event.id} />
             ))}

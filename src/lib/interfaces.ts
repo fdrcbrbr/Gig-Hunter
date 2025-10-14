@@ -6,6 +6,13 @@ export interface EventImage {
   fallback: boolean;
 }
 
+export interface EventAttraction {
+  name: string;
+  type?: string;
+  id?: string;
+  url?: string;
+}
+
 export interface EventVenue {
   name: string;
     city: {
@@ -19,6 +26,27 @@ export interface EventVenue {
   };
 }
 
+export interface EventsRes {
+  _embedded: {
+    events: Event[];
+  };
+  page: {
+    totalElements: number;
+  };
+}
+
+export interface EventClassification {
+  genre: {
+    id: string;
+    name: string;
+  };
+  subGenre?: {
+    id: string;
+    name: string;
+  };
+}
+
+
 export interface Event {
   name: string;
   id: string;
@@ -30,20 +58,9 @@ export interface Event {
       localTime: string;
     };
   };
-  classifications: Array<{
-    genre: { name: string };
-    subGenre: { name: string };
-  }>;
+  classifications: EventClassification[];
   _embedded: {
     venues: EventVenue[];
-  };
-}
-
-export interface EventsRes {
-  _embedded: {
-    events: Event[];
-  };
-  page: {
-    totalElements: number;
+    attractions?: EventAttraction[];
   };
 }
