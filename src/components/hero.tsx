@@ -1,6 +1,6 @@
 import SearchBar from "./ui/search";
-import Filters from "./filter-genre";
-import DatePicker from "./filter-date";
+import Filters from "./ui/filter-genre";
+import DatePicker from "./ui/filter-date";
 
 export default function Hero() {
   return (
