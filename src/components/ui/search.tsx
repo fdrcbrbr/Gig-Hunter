@@ -21,7 +21,7 @@ export default function SearchBar() {
       <div className="relative w-full max-w-md">
         <input
           type="text"
-          placeholder="Search for events..."
+          placeholder="Search for an artist or a city.."
           defaultValue={searchParams.get("query")?.toString() || ""}
           onChange={(e) => handleSearch(e.target.value)}
           className="w-full rounded-full bg-gray-100 py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"

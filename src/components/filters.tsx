@@ -35,9 +35,8 @@ export default function Filters() {
 
   return (
     <div className="flex gap-4 p-4 bg-gray-100 rounded-lg">
-      {/* Filtro per Genere */}
       <div className="flex flex-col">
-        <span className="font-medium mb-2">Genre</span>
+        <span className="font-medium mb-2"> Genre</span>
         <select
           value={currentGenreCode}
           onChange={(e) => handleFilterChange(e.target.value)}

@@ -58,18 +58,13 @@ export async function getEventsByCity(city: string): Promise<EventsRes> {
  */
 export async function getEventsByKeyword(query: string): Promise<EventsRes> {
   try {
-
     const url = `${baseurl}&keyword=${encodeURIComponent(query)}`;
-
-    console.log("Fetching events from URL:", url); 
-
     const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data: EventsRes = await response.json();
-    console.log("API response:", data); 
     return data;
   } catch (error) {
     console.error("Error fetching events:", error);

@@ -3,13 +3,9 @@ import Link from "next/link";
 import { Event, EventsRes } from "@/lib/interfaces";
 import Card from "@/components/card";
 
-interface EventsPageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
 
-export default async function Showcase({ searchParams = {} }: EventsPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const query = (resolvedSearchParams.query as string) || "";
+export default async function Showcase() {
+
   let events: Event[] = [];
 
   try {
@@ -30,7 +26,7 @@ export default async function Showcase({ searchParams = {} }: EventsPageProps) {
           </div>
 
           {/* Events Grid */}
-          <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {events.map((event) => (
               <Card event={event} key={event.id} />
             ))}

@@ -11,6 +11,7 @@ export default function Hero() {
         Explore live music events in your city. From indie gigs to big festivals, we&apos;ve got you covered.
       </p>
       <SearchBar/>
+      <Filters/>
     </div>
   );
 }

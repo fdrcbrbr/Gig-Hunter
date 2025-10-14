@@ -7,8 +7,14 @@ interface EventsPageProps {
 }
 
 export default async function EventList({ searchParams = {} }: EventsPageProps) {
+
+  if(!searchParams){
+    return
+  }
+
+
    const query = typeof searchParams.query === 'string' ? searchParams.query : "";
-  console.log("Query:", query); // Debug: stampa la query per verifica
+   const genreCode = typeof searchParams.genre === 'string' ? searchParams.genre : "";
 
   let events: Event[] = [];
 
@@ -17,13 +23,13 @@ export default async function EventList({ searchParams = {} }: EventsPageProps) 
     events = response._embedded.events;
 
    
-    /* if (genreCode) {
+     if (genreCode) {
       events = events.filter((event) =>
         event.classifications.some(
           (classification) => classification.genre.id === genreCode
         )
       );
-    } */
+    }
 
     return (
       <div className="bg-[color:var(--color-cream)] pt-15">
