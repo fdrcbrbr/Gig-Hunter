@@ -1,4 +1,4 @@
-import { getEventsByCity } from "@/data/events";
+import { getEventsByKeyword } from "@/data/events";
 import Link from "next/link";
 import { Event, EventsRes } from "@/lib/interfaces";
 import CardList from "@/components/card-list";
@@ -10,17 +10,17 @@ interface EventsPageProps {
 export default async function EventList({
   searchParams = {},
 }: EventsPageProps) {
-  /*    if (!searchParams.query) {
-    return null;
-  } */
   const query = (searchParams.query as string) || "";
+  const cityFilter = (searchParams.city as string)?.toLowerCase();
+
   let events: Event[] = [];
 
   try {
-    const response: EventsRes = await getEventsByCity(query);
-    events = response._embedded.events;
+    if (query) {
+      const response: EventsRes = await getEventsByKeyword(query);
+      events = response._embedded.events;
+    }
 
-    const cityFilter = (searchParams.city as string)?.toLowerCase();
     if (cityFilter) {
       events = events.filter((event) =>
         event._embedded.venues[0]?.city?.name.toLowerCase().includes(cityFilter)
@@ -36,7 +36,7 @@ export default async function EventList({
             <div className="border-t-2 border-gray-600 w-full absolute"></div>
             {/* Text */}
             <span className="bg-[color:var(--color-cream)] px-4 text-center text-xl font-medium text-gray-700 relative z-10">
-              Upcoming Events {cityFilter ? `in ${cityFilter}` : ""}
+              Upcoming Events
             </span>
           </div>
           {/* Events Grid */}
@@ -45,7 +45,7 @@ export default async function EventList({
               events.map((event) => <CardList event={event} key={event.id} />)
             ) : (
               <p className="text-center text-gray-500 col-span-full">
-                No events found {cityFilter ? `in ${cityFilter}` : ""}.
+                No events found 
               </p>
             )}
           </div>

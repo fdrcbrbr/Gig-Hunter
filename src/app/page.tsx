@@ -8,7 +8,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Backdrop imageUrl="/images/bg-header.jpg" opacity={80} overlayColor="black">
+      <Backdrop>
         <Header/>
         <Hero />
       </Backdrop>

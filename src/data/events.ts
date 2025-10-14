@@ -5,6 +5,29 @@ const apiKey = process.env.API_KEY_TICKET;
 const baseurl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&countryCode=SE`;
 
 /**
+ * Fetch events according the baseUrl (any event in Sweden)
+ * @returns Promise with all the events in Sweden as the Api lists
+ */
+export async function getEvents(): Promise<EventsRes> {
+  try {
+    const response = await fetch(`${baseurl}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data: EventsRes = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error fetching events:", error);
+    throw new Error(
+      `Failed to fetch events: ${
+        error instanceof Error ? error.message : String(error)
+      }`
+    );
+  }
+}
+
+/**
  * Fetch events according to a selected city
  * @param city - The city name (e.g., 'stockholm', 'uppsala')
  * @returns Promise with Promise with event's data
@@ -29,31 +52,8 @@ export async function getEventsByCity(city: string): Promise<EventsRes> {
 }
 
 /**
- * Fetch events for the showcase (20 events)
- * @returns Promise with event's data for the site's showcase
- */
-export async function getEventsShowcase(): Promise<EventsRes> {
-  try {
-    const response = await fetch(`${baseurl}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data: EventsRes = await response.json();
-
-    return data;
-  } catch (error) {
-    console.error("Error fetching events:", error);
-    throw new Error(
-      `Failed to fetch events: ${
-        error instanceof Error ? error.message : String(error)
-      }`
-    );
-  }
-}
-
-/**
  * Fetch events using the keyword function of the API
- * @param keyword - Could be a city, an artist or part of a word
+ * @param keyword - Works with any word or fraction of it
  * @returns Promise with Promise with event's data
  */
 export async function getEventsByKeyword(keyword: string): Promise<EventsRes> {
