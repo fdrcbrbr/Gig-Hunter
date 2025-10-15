@@ -3,16 +3,24 @@ import { getUniqueEvents } from "@/lib/helpers";
 import Link from "next/link";
 import { Event, EventsRes } from "@/lib/interfaces";
 import Card from "@/components/card";
+import Pagination from "@/components/pagination";
 
+interface ShowcaseProps {
+  page?: number;
+  limit?: number;
+}
 
-export default async function Showcase() {
-
+export default async function Showcase({
+  page = 1,
+  limit = 20,
+}: ShowcaseProps) {
   let events: Event[] = [];
-
   try {
     const response: EventsRes = await getEvents();
     const listWithDuplicates: Event[] = response._embedded.events;
     events = getUniqueEvents(listWithDuplicates);
+    const startIndex = (page - 1) * limit;
+    const paginatedEvents = events.slice(startIndex, startIndex + limit);
 
     return (
       <div className="bg-[color:var(--color-cream)] py-15">
@@ -21,18 +29,22 @@ export default async function Showcase() {
           <div className="flex mb-15 items-center justify-center relative">
             {/* Line */}
             <div className="border-t-2 border-gray-600 w-full absolute"></div>
-            {/* Text" */}
+            {/* Text */}
             <span className="bg-[color:var(--color-cream)] px-4 text-center text-xl font-medium text-gray-700 relative z-10">
               Upcoming Events
             </span>
           </div>
-
           {/* Events Grid */}
           <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {events.map((event) => (
+            {paginatedEvents.map((event) => (
               <Card event={event} key={event.id} />
             ))}
           </div>
+          <Pagination
+            totalItems={events.length}
+            itemsPerPage={limit}
+            currentPage={page}
+          />
         </div>
       </div>
     );
