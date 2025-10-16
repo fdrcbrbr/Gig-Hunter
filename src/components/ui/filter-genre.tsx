@@ -25,7 +25,7 @@ export default function FilterGenre() {
     } else {
       params.delete("genre");
     }
-    replace(`${pathname}?${params.toString()}`);
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   const genreOptions = [
@@ -37,7 +37,7 @@ export default function FilterGenre() {
   ];
 
   return (
-    <div className="flex bg-neutral-100 rounded-lg">
+    <div className="flex bg-neutral-100 rounded-lg h-fit">
       <Select value={currentGenreCode} onValueChange={handleFilterChange}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select a genre" />

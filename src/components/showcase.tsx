@@ -3,7 +3,7 @@ import { getUniqueEvents } from "@/lib/helpers";
 import Link from "next/link";
 import { Event, EventsRes } from "@/lib/interfaces";
 import Card from "@/components/card";
-import Pagination from "@/components/pagination";
+import CustomPagination from "@/components/ui/custom-pagination";
 
 interface ShowcaseProps {
   page?: number;
@@ -40,7 +40,7 @@ export default async function Showcase({
               <Card event={event} key={event.id} />
             ))}
           </div>
-          <Pagination
+          <CustomPagination
             totalItems={events.length}
             itemsPerPage={limit}
             currentPage={page}

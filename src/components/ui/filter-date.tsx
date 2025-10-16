@@ -4,7 +4,6 @@ import { ChevronDownIcon, XIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Label } from "@/components/ui/label";
 import {
   Popover,
   PopoverContent,
@@ -46,17 +45,17 @@ export default function FilterDate() {
     setDate(undefined);
     const params = new URLSearchParams(searchParams.toString());
     params.delete("date");
-    router.push(`?${params.toString()}`);
+    router.push(`?${params.toString()}`, { scroll: false });
   };
 
   return (
-    <div className="flex flex-col gap-3 my-6">
+    <div className="flex flex-col">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
             variant="outline"
             id="date"
-            className="w-64 justify-between font-normal text-neutral-400 border-neutral-400 h-10"
+            className="w-48 justify-between font-normal text-neutral-400 border-neutral-400 h-10"
           >
             {date ? (
               formattedDate
