@@ -5,8 +5,10 @@ import Showcase from "@/components/showcase";
 import EventList from "@/components/list-events";
 
 export default function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
-  // Controlla se esiste almeno uno dei parametri di ricerca
+
   const hasSearchParams = !!searchParams.query || !!searchParams.genre || !!searchParams.date;
+  const pageParam = searchParams.page;
+  const page = typeof pageParam === 'string' ? parseInt(pageParam) : 1;
 
   return (
     <>
@@ -14,9 +16,8 @@ export default function Home({ searchParams }: { searchParams: { [key: string]: 
         <Header />
         <Hero />
       </Backdrop>
-      {/* Mostra EventList solo se c'è una query di ricerca o un genere */}
       {hasSearchParams && <EventList searchParams={searchParams} />}
-      <Showcase />
+      <Showcase page={page} limit={20} />
     </>
   );
 }
