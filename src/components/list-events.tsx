@@ -45,7 +45,7 @@ export default async function EventList({ searchParams = {} }: EventsPageProps) 
                Uppcoming Events {query ? `for "${query}"` : ""}
             </span>
           </div>
-          <div className="grid gap-3 place-content-center">
+          <div className="grid gap-3">
             {events.length > 0 ? (
               events.map((event) => <CardList event={event} key={event.id} />)
             ) : (

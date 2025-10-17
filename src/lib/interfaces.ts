@@ -51,6 +51,7 @@ export interface Event {
   name: string;
   id: string;
   url: string;
+  description: string;
   images: EventImage[];
   dates: {
     start: {
