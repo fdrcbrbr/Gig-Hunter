@@ -15,11 +15,16 @@ export interface EventAttraction {
 
 export interface EventVenue {
   name: string;
-    city: {
+  city: {
     name: string;
   };
-  country: string;
-  address: string;
+  country: {
+    name: string;
+    countryCode: string;
+  };
+  address: {
+    line1: string;
+  };
   location: {
     longitude: string;
     latitude: string;
@@ -51,6 +56,7 @@ export interface Event {
   name: string;
   id: string;
   url: string;
+  description: string;
   images: EventImage[];
   dates: {
     start: {
