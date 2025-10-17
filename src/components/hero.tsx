@@ -9,11 +9,14 @@ export default function Hero() {
         Find Your Next Gig
       </h2>
       <p className="text-[var(--color-yellow)] text-xl max-w-2xl">
-        Explore live music events in your city. From indie gigs to big festivals, we&apos;ve got you covered.
+        Explore live music events in your city. From indie gigs to big
+        festivals, we&apos;ve got you covered.
       </p>
-      <SearchBar/>
-      <Filters/>
-      <DatePicker/>
+      <SearchBar />
+      <div className="flex gap-8">
+        <Filters />
+        <DatePicker />
+      </div>
     </div>
   );
 }
