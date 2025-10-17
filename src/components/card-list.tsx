@@ -51,13 +51,15 @@ export default function CardList({ event }: { event: Event }) {
           <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
           {isExpanded ? "Less Info" : "More Info"}
         </Button>
+
+         <Button className="w-full md:w-auto ml-2 bg-red-600">
+            Get Tickets
+          </Button>
       </div>
 
       {isExpanded && (
         <CardListDd
           event={event}
-          cityName={cityName}
-          venueName={venueName}
           onClose={() => setIsExpanded(false)}
         />
       )}
