@@ -3,6 +3,8 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Showcase from "@/components/showcase";
 import EventList from "@/components/list-events";
+import BackdropMail from "@/components/backdrop-mail";
+import MailingList from "@/components/mailing-list";
 
 export default function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
@@ -18,6 +20,9 @@ export default function Home({ searchParams }: { searchParams: { [key: string]: 
       </Backdrop>
       {hasSearchParams && <EventList searchParams={searchParams} />}
       <Showcase page={page} limit={20} />
+      <BackdropMail>
+        <MailingList/>
+      </BackdropMail>
     </>
   );
 }
