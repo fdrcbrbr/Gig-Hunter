@@ -29,7 +29,7 @@ export default function FilterGenre() {
   };
 
   const genreOptions = [
-    { name: "All Genres", code: "all" },
+    { name: "- Clear Genre Filter -", code: "all" },
     ...Object.entries(GENRE_DISPLAY_NAMES).map(([name, code]) => ({
       name,
       code,
