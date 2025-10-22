@@ -25,16 +25,12 @@ export default async function Showcase({
     return (
       <div className="bg-[color:var(--color-cream)] py-15">
         <div className="w-[90vw] mx-auto">
-          {/* Line box */}
           <div className="flex mb-15 items-center justify-center relative">
-            {/* Line */}
             <div className="border-t-2 border-gray-600 w-full absolute"></div>
-            {/* Text */}
             <span className="bg-[color:var(--color-cream)] px-4 text-center text-xl font-medium text-gray-700 relative z-10">
               Upcoming Events
             </span>
           </div>
-          {/* Events Grid */}
           <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {paginatedEvents.map((event) => (
               <Card event={event} key={event.id} />
