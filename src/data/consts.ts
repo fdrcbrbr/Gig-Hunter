@@ -22,8 +22,25 @@ export const GENRE_DISPLAY_NAMES: Record<string, string> = {
 };
 
 // Country names mapping
-export const COUNTRY_DISPLAY_NAMES: Record<string, string> = {
+export const COUNTRY_DISPLAY_NAMES_SHORT: Record<string, string> = {
   'UK': 'GB',
   'Sweden': "SE",
   'Italy': "IT",
+};
+
+// Country names mapping
+export const COUNTRY_DISPLAY_NAMES: Record<string, string> = {
+  'Danmark': "DK",
+  'Estland': "EE",
+  'Finland': 'FI',
+  'France': "FR",
+  'Germany': "DE",
+  'Italy': "IT",
+  'Netherland': "NL",
+  'Norway': "NO",
+  'Poland': "PL",
+  'Spain': 'ES',
+  'Sweden': "SE",
+  'UK': 'GB',
+  'USA': "US",
 };
