@@ -31,7 +31,7 @@ export default async function Showcase({
               Upcoming Events
             </span>
           </div>
-          <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-4">
             {paginatedEvents.map((event) => (
               <Card event={event} key={event.id} />
             ))}
