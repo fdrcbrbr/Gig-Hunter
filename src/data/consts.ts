@@ -1,7 +1,7 @@
 
 
 
-// Genre display names mapping
+// Genre names mapping
 export const GENRE_DISPLAY_NAMES: Record<string, string> = {
   'Alternative': 'KnvZfZ7vAvv',
   'Blues': "KnvZfZ7vAvd",
@@ -19,4 +19,11 @@ export const GENRE_DISPLAY_NAMES: Record<string, string> = {
   'Reggae': "KnvZfZ7vAed",
   'Rock': "KnvZfZ7vAeA",
   'World': "KnvZfZ7vAeF"
+};
+
+// Country names mapping
+export const COUNTRY_DISPLAY_NAMES: Record<string, string> = {
+  'UK': 'GB',
+  'Sweden': "SE",
+  'Italy': "IT",
 };
