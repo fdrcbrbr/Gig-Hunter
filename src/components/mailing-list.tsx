@@ -24,6 +24,7 @@ export default function MailingList() {
       } else {
         setMessage("Error subscribing.");
       }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setMessage("Network error.");
     }
@@ -40,7 +41,7 @@ export default function MailingList() {
         </div>
         <div className="flex justify-center mb-8">
           <p className="text-center text-gray-700 text-xl max-w-[70ch]">
-            Don't miss out on our events! Subscribe to our mailing list to stay updated with the latest news and exclusive offers.
+            Don&apos;t miss out on our events! Subscribe to our mailing list to stay updated with the latest news and exclusive offers.
           </p>
         </div>
         <div className="h-[50vh] bg-[var(--color-cream)] flex flex-col justify-start items-center pt-10">
