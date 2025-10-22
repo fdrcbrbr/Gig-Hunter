@@ -16,7 +16,7 @@ export default function FilterCountries() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-  const currentGenreCode = searchParams.get("country") || "";
+  const currentCountryCode = searchParams.get("country") || "";
 
   const handleFilterChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
@@ -28,7 +28,7 @@ export default function FilterCountries() {
     replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
-  const genreOptions = [
+  const countryOptions = [
     { name: "- Clear Country Filter -", code: "all" },
     ...Object.entries(COUNTRY_DISPLAY_NAMES).map(([name, code]) => ({
       name,
@@ -38,14 +38,14 @@ export default function FilterCountries() {
 
   return (
     <div className="flex bg-neutral-100 rounded-lg h-fit">
-      <Select value={currentGenreCode} onValueChange={handleFilterChange}>
+      <Select value={currentCountryCode} onValueChange={handleFilterChange}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select a country" />
         </SelectTrigger>
         <SelectContent className="max-h-[200px] overflow-y-auto">
           <SelectGroup>
             <SelectLabel>Genres</SelectLabel>
-            {genreOptions.map((option) => (
+            {countryOptions.map((option) => (
               <SelectItem key={option.code} value={option.code}>
                 {option.name}
               </SelectItem>

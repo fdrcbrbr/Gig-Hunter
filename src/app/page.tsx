@@ -8,7 +8,7 @@ import MailingList from "@/components/mailing-list";
 
 export default function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
-  const hasSearchParams = !!searchParams.query || !!searchParams.genre || !!searchParams.date;
+  const hasSearchParams = !!searchParams.query || !!searchParams.genre || !!searchParams.date || !!searchParams.country;
   const pageParam = searchParams.page;
   const page = typeof pageParam === 'string' ? parseInt(pageParam) : 1;
 
