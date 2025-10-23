@@ -30,7 +30,7 @@ export async function getEvents(): Promise<EventsRes> {
 /**
  * Fetch events according to a selected city
  * @param city - The city name (e.g., 'stockholm', 'uppsala')
- * @param country - Refine search to a specific country (optional)
+ * @param country - Refine the research to a specific country (optional)
  * @returns Promise with Promise with event's data
  */
 export async function getEventsByCity(city: string, country?: string): Promise<EventsRes> {
@@ -55,7 +55,7 @@ export async function getEventsByCity(city: string, country?: string): Promise<E
 /**
  * Fetch events using the keyword function of the API
  * @param keyword - Works filtering words city, band, and so on
- * @param country - Refine search to a specific country (optional)
+ * @param country - Refine the research to a specific country (optional)
  * @returns Promise with Promise with event's data
  */
 export async function getEventsByKeyword(query: string, country?: string): Promise<EventsRes> {

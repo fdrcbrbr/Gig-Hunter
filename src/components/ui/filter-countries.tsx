@@ -44,7 +44,7 @@ export default function FilterCountries() {
         </SelectTrigger>
         <SelectContent className="max-h-[200px] overflow-y-auto">
           <SelectGroup>
-            <SelectLabel>Genres</SelectLabel>
+            <SelectLabel>Country</SelectLabel>
             {countryOptions.map((option) => (
               <SelectItem key={option.code} value={option.code}>
                 {option.name}
