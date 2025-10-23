@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     console.log('File done:', artists);
     return NextResponse.json({ message: 'Artists saved!', filePath });
   } catch (error) {
-    console.error('Errore writing file:', error);
+    console.error('Error writing file:', error);
     return NextResponse.json(
       { error: 'Error saving artists', details: error },
       { status: 500 }
@@ -30,6 +30,7 @@ export async function GET() {
     const savedArtists = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     return NextResponse.json(savedArtists);
   } catch (error) {
+    console.error('Error fetching file:', error);
     return NextResponse.json(
       { error: 'Error reading artists' },
       { status: 500 }
