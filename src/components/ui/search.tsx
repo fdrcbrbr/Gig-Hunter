@@ -19,7 +19,7 @@ export default function SearchBar() {
       params.set("country", country);
     }
     replace(`${pathname}?${params.toString()}`, { scroll: false });
-  }, 300);
+  }, 500);
 
   return (
     <div className="flex justify-center w-full my-10">
