@@ -1,4 +1,4 @@
-import { EventsRes} from "@/lib/interfaces";
+import { EventsRes } from "@/lib/interfaces";
 
 const apiKey = process.env.API_KEY_TICKET;
 
@@ -33,9 +33,14 @@ export async function getEvents(): Promise<EventsRes> {
  * @param country - Refine the research to a specific country (optional)
  * @returns Promise with Promise with event's data
  */
-export async function getEventsByCity(city: string, country?: string): Promise<EventsRes> {
+export async function getEventsByCity(
+  city: string,
+  country?: string
+): Promise<EventsRes> {
   try {
-    const response = await fetch(`${baseurl}&city=${city}&countryCode=${country}`);
+    const response = await fetch(
+      `${baseurl}&city=${city}&countryCode=${country}`
+    );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -58,11 +63,14 @@ export async function getEventsByCity(city: string, country?: string): Promise<E
  * @param country - Refine the research to a specific country (optional)
  * @returns Promise with Promise with event's data
  */
-export async function getEventsByKeyword(query: string, country?: string): Promise<EventsRes> {
+export async function getEventsByKeyword(
+  query: string,
+  country?: string
+): Promise<EventsRes> {
   try {
-    const url = `${baseurl}&keyword=${query}&countryCode=${country}`;
+    const countryCode = country || "SE";
+    const url = `${baseurl}&keyword=${query}&countryCode=${countryCode}`;
     const response = await fetch(url);
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -77,4 +85,3 @@ export async function getEventsByKeyword(query: string, country?: string): Promi
     );
   }
 }
-
