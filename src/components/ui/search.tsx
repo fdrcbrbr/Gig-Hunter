@@ -13,8 +13,13 @@ export default function SearchBar() {
     if (term) {
       params.set("query", term);
     }
+
+    const country = searchParams.get("country");
+    if (country) {
+      params.set("country", country);
+    }
     replace(`${pathname}?${params.toString()}`, { scroll: false });
-  }, 300);
+  }, 500);
 
   return (
     <div className="flex justify-center w-full my-10">
@@ -33,4 +38,5 @@ export default function SearchBar() {
     </div>
   );
 }
+
 

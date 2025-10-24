@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
     domains: [
       "s1.ticketm.net", 
       "images.universe.com",
-      "media.ticketmaster.eu"
+      "media.ticketmaster.eu",
+      "i.ticketweb.com"
     ],
   },
 };

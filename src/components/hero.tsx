@@ -1,6 +1,7 @@
 import SearchBar from "./ui/search";
 import FilterGenre from "./ui/filter-genre";
 import FilterDate from "./ui/filter-date";
+import FilterCountries from "./ui/filter-countries";
 
 export default function Hero() {
   return (
@@ -15,6 +16,7 @@ export default function Hero() {
       <SearchBar />
       <div className="flex gap-8">
         <FilterGenre />
+        <FilterCountries/>
         <FilterDate />
       </div>
     </div>
