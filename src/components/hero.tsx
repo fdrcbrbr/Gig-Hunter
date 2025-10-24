@@ -14,7 +14,7 @@ export default function Hero() {
         festivals, we&apos;ve got you covered.
       </p>
       <SearchBar />
-      <div className="flex gap-8">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
         <FilterGenre />
         <FilterCountries/>
         <FilterDate />

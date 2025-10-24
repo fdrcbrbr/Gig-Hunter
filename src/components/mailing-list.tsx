@@ -51,8 +51,8 @@ export default function MailingList() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Insert your e-mail.."
+              className="w-[60vh] md:w-[80vh] text-black bg-neutral-100"
               required
-              className="w-[60vh] text-black bg-neutral-100"
             />
             <Button
               className="text-neutral-100 border-neutral-100 ml-2"
@@ -66,7 +66,7 @@ export default function MailingList() {
               {message}
             </p>
           )}
-          <div className="flex justify-center gap-30 mt-20">
+          <div className="flex justify-center gap-8 sm:gap-2 md:gap-12 mt-20">
             <Drum className="h-15 w-15 text-gray-700" />
             <MicVocal className="h-15 w-15 text-gray-700" />
             <Guitar className="h-15 w-15 text-gray-700" />
