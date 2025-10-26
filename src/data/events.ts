@@ -2,7 +2,7 @@ import { EventsRes } from "@/lib/interfaces";
 
 const apiKey = process.env.API_KEY_TICKET;
 
-const baseurl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&size=100`;
+const baseurl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&size=100&locale=*`;
 
 /**
  * Fetch events according the baseUrl (any event in Sweden)
@@ -10,7 +10,7 @@ const baseurl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKe
  */
 export async function getEvents(): Promise<EventsRes> {
   try {
-    const response = await fetch(`${baseurl}`);
+    const response = await fetch(`${baseurl}&countryCode=SE`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}&countryCode=SE`);
     }

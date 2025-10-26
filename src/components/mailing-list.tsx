@@ -24,7 +24,7 @@ export default function MailingList() {
       } else {
         setMessage("Error subscribing.");
       }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setMessage("Network error.");
     }
@@ -41,13 +41,18 @@ export default function MailingList() {
         </div>
         <div className="flex justify-center mb-8">
           <p className="text-center text-gray-700 text-xl max-w-[70ch]">
-            Don&apos;t miss out on our events! Subscribe to our mailing list to stay updated with the latest news and exclusive offers.
+            Don&apos;t miss out on our events! Subscribe to our mailing list to
+            stay updated with the latest news and exclusive offers.
           </p>
         </div>
         <div className="h-[50vh] bg-[var(--color-cream)] flex flex-col justify-start items-center pt-10">
           <form className="flex justify-center" onSubmit={handleSubmit}>
+            <label htmlFor="mailing-list" className="sr-only">
+              Mailing list subscription
+            </label>
             <Input
               type="email"
+              id="mailing-list"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Insert your e-mail.."
@@ -62,9 +67,7 @@ export default function MailingList() {
             </Button>
           </form>
           {message && (
-            <p className="mt-4 text-center text-gray-700">
-              {message}
-            </p>
+            <p className="mt-4 text-center text-gray-700">{message}</p>
           )}
           <div className="flex justify-center gap-8 sm:gap-2 md:gap-12 mt-20">
             <Drum className="h-15 w-15 text-gray-700" />

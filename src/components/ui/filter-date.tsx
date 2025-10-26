@@ -33,7 +33,13 @@ export default function FilterDate() {
     setOpen(false);
     const params = new URLSearchParams(searchParams.toString());
     if (selectedDate) {
-      const formattedDate = selectedDate.toISOString().split("T")[0];
+      const formattedDate = selectedDate
+        .toLocaleDateString("sv-SE", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        })
+        .replace(/\D/g, "-"); // Formatta come "YYYY-MM-DD"
       params.set("date", formattedDate);
     } else {
       params.delete("date");
@@ -87,9 +93,7 @@ export default function FilterDate() {
         </PopoverContent>
       </Popover>
       {date && (
-        <p className="text-neutral-100">
-          Selected date: {formattedDate}
-        </p>
+        <p className="text-neutral-100">Selected date: {formattedDate}</p>
       )}
     </div>
   );

@@ -24,8 +24,12 @@ export default function SearchBar() {
   return (
     <div className="flex justify-center w-full my-10">
       <div className="relative w-full max-w-md">
+        <label htmlFor="search-input" className="sr-only">
+          Search for artists, events, or locations
+        </label>
         <input
           type="text"
+          id="search-input" 
           placeholder="Search for an artist or a city.."
           defaultValue={searchParams.get("query")?.toString() || ""}
           onChange={(e) => handleSearch(e.target.value)}
@@ -38,5 +42,3 @@ export default function SearchBar() {
     </div>
   );
 }
-
-

@@ -39,7 +39,7 @@ export default function FilterCountries() {
   return (
     <div className="flex bg-neutral-100 rounded-lg h-fit">
       <Select value={currentCountryCode} onValueChange={handleFilterChange}>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-[200px]">
           <SelectValue placeholder="Select a country" />
         </SelectTrigger>
         <SelectContent className="max-h-[200px] overflow-y-auto">
